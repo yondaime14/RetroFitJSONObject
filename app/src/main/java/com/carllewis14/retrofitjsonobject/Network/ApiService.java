@@ -1,8 +1,16 @@
 package com.carllewis14.retrofitjsonobject.Network;
 
+import com.carllewis14.retrofitjsonobject.DataModel.ContactList;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+
 /**
- * Created by carllewis on 17/02/2017.
+ * Api Service class
  */
 
 public interface ApiService {
+
+    @GET("/json_data.json")
+    Call<ContactList> getJSON();
 }
