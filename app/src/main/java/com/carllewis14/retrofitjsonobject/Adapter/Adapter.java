@@ -68,11 +68,11 @@ public class Adapter extends ArrayAdapter<Contact> {
 
 
     private static class ViewHolder {
-        public final RelativeLayout rootView;
-        public final ImageView imageView;
-        public final TextView tvName;
-        public final TextView tvEmail;
-        public final TextView tvPhone;
+         final RelativeLayout rootView;
+         final ImageView imageView;
+         final TextView tvName;
+         final TextView tvEmail;
+         final TextView tvPhone;
 
         private ViewHolder(RelativeLayout rootView, TextView tvName, TextView tvEmail, TextView tvPhone, ImageView imageView) {
 
