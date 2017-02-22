@@ -23,7 +23,6 @@ import retrofit2.Response;
 
 import static com.carllewis14.retrofitjsonobject.R.id.imageView;
 import static com.carllewis14.retrofitjsonobject.R.id.tvEmail;
-import static com.carllewis14.retrofitjsonobject.R.id.tvName;
 import static com.carllewis14.retrofitjsonobject.R.id.tvPhone;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,9 +54,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
+                Contact selectedContact = contactList.get(position);
+
                 Intent intent = new Intent(MainActivity.this, DetailedActivity.class);
                 intent.putExtra("imageView", imageView);
-                intent.putExtra("tvName", tvName);
+                intent.putExtra("name", contactList.get(position).getName());
                 intent.putExtra("tvEmail", tvEmail);
                 intent.putExtra("tvPhone", tvPhone);
                 startActivity(intent);

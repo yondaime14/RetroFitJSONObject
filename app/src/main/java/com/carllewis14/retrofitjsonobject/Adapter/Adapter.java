@@ -35,6 +35,11 @@ public class Adapter extends ArrayAdapter<Contact> {
         contactList = objects;
     }
 
+    //Tells listView how many sizes
+    @Override
+    public int getCount() {
+        return contactList.size();
+    }
 
     @Override
     public Contact getItem(int position) {
@@ -45,7 +50,7 @@ public class Adapter extends ArrayAdapter<Contact> {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
 
