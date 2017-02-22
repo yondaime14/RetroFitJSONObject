@@ -1,9 +1,11 @@
 package com.carllewis14.retrofitjsonobject.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.carllewis14.retrofitjsonobject.Adapter.Adapter;
@@ -19,6 +21,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.carllewis14.retrofitjsonobject.R.id.imageView;
+import static com.carllewis14.retrofitjsonobject.R.id.tvEmail;
+import static com.carllewis14.retrofitjsonobject.R.id.tvName;
+import static com.carllewis14.retrofitjsonobject.R.id.tvPhone;
+
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -28,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private View parentView;
     private ArrayList<Contact> contactList;
     private Adapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
         //Gets list and sets adapter
         listView = (ListView) findViewById(R.id.listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                Intent intent = new Intent(MainActivity.this, DetailedActivity.class);
+                intent.putExtra("imageView", imageView);
+                intent.putExtra("tvName", tvName);
+                intent.putExtra("tvEmail", tvEmail);
+                intent.putExtra("tvPhone", tvPhone);
+                startActivity(intent);
+
+            }
+        });
 
         //Potential on click listener goes here
 

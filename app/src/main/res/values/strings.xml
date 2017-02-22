@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RetroFit JSON Object</string>
+    <string name="imageContentDesc">image</string>
 </resources>

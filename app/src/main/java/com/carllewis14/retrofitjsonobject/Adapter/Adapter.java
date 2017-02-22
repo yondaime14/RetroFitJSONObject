@@ -23,8 +23,8 @@ import java.util.List;
 
 public class Adapter extends ArrayAdapter<Contact> {
 
-    List<Contact> contactList;
-    Context context;
+    private List<Contact> contactList;
+    private Context context;
     private LayoutInflater mInflater;
 
     //Constructors
@@ -39,6 +39,13 @@ public class Adapter extends ArrayAdapter<Contact> {
     @Override
     public Contact getItem(int position) {
         return contactList.get(position);
+
+
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
     }
 
 
@@ -59,8 +66,8 @@ public class Adapter extends ArrayAdapter<Contact> {
 
         vh.tvName.setText(item.getName());
         vh.tvEmail.setText(item.getEmail());
-        vh.tvPhone.setText((CharSequence) item.getPhone());
-        Picasso.with(context).load(item.getProfilePic()).resize(120,120).into(vh.imageView);
+        Picasso.with(context).load(item.getProfilePic()).placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher).resize(10,10).into(vh.imageView);
 
         return vh.rootView;
 
@@ -72,14 +79,13 @@ public class Adapter extends ArrayAdapter<Contact> {
          final ImageView imageView;
          final TextView tvName;
          final TextView tvEmail;
-         final TextView tvPhone;
 
-        private ViewHolder(RelativeLayout rootView, TextView tvName, TextView tvEmail, TextView tvPhone, ImageView imageView) {
+
+        private ViewHolder(RelativeLayout rootView, TextView tvName, TextView tvEmail, ImageView imageView) {
 
             this.rootView = rootView;
             this.tvName = tvName;
             this.tvEmail = tvEmail;
-            this.tvPhone = tvPhone;
             this.imageView = imageView;
         }
 
@@ -88,9 +94,8 @@ public class Adapter extends ArrayAdapter<Contact> {
 
             TextView tvName = (TextView) rootView.findViewById(R.id.tvName);
             TextView tvEmail = (TextView) rootView.findViewById(R.id.tvEmail);
-            TextView tvPhone = (TextView) rootView.findViewById(R.id.tvPhone);
             ImageView imageView = (ImageView) rootView.findViewById(R.id.imageView);
-            return new ViewHolder(rootView, tvName, tvEmail, tvPhone, imageView);
+            return new ViewHolder(rootView, tvName, tvEmail, imageView);
         }
     }
 
