@@ -21,10 +21,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.carllewis14.retrofitjsonobject.R.id.imageView;
-import static com.carllewis14.retrofitjsonobject.R.id.tvEmail;
-import static com.carllewis14.retrofitjsonobject.R.id.tvPhone;
-
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -57,14 +53,17 @@ public class MainActivity extends AppCompatActivity {
                 Contact selectedContact = contactList.get(position);
 
                 Intent intent = new Intent(MainActivity.this, DetailedActivity.class);
-                intent.putExtra("imageView", imageView);
+                intent.putExtra("imageView", contactList.get(position).getProfilePic());
                 intent.putExtra("name", contactList.get(position).getName());
-                intent.putExtra("tvEmail", tvEmail);
-                intent.putExtra("tvPhone", tvPhone);
+                intent.putExtra("email", contactList.get(position).getEmail());
+                intent.putExtra("phone", contactList.get(position).getPhone().getMobile());
+
                 startActivity(intent);
 
             }
         });
+
+
 
         //Potential on click listener goes here
 

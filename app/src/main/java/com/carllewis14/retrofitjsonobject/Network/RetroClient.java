@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by carllewis on 17/02/2017.
+ * Retroclient URL builder
  */
 
 public class RetroClient {

@@ -5,47 +5,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context="com.carllewis14.retrofitjsonobject.Activity.DetailedActivity">
 
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:paddingRight="10dp"
-        android:contentDescription="@string/imageContentDesc"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:id="@+id/tvName"
-        android:layout_margin="2dp"
-        tools:text="TEXT NAME"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvEmail"
-        android:layout_below="@+id/tvName"
-        android:layout_toRightOf="@id/imageView"
-        android:layout_toEndOf="@id/imageView"
-        android:layout_margin="2dp"
-        tools:text="EMAIL HERE"/>
-
-
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/profilPic"
+        android:contentDescription="@string/profile_pic_detailView"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvEmail"
-        android:id="@+id/tvPhone"
-        android:layout_margin="2dp"
-        tools:text="Phone HERE"/>
+        android:id="@+id/tvName"
+        android:textSize="18sp"
+        android:textAppearance="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:layout_below="@+id/profilPic"
+        android:text="FIRSTNAME LASTNAME"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvEmail"
+        android:textSize="18sp"
+        android:layout_below="@+id/tvName"
+        android:text="EMAIL@EMAIL.COM"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPhone"
+        android:textSize="18sp"
+        android:layout_below="@+id/tvEmail"
+        android:text="020 8900 1234"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp"/>
+
 
 </RelativeLayout>

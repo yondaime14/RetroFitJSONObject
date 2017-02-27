@@ -69,13 +69,14 @@ public class Adapter extends ArrayAdapter<Contact> {
 
            Contact item = getItem(position);
 
+
         vh.tvName.setText(item.getName());
         vh.tvEmail.setText(item.getEmail());
+        vh.tvPhone.setText(item.getPhone().getMobile());
         Picasso.with(context).load(item.getProfilePic()).placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_launcher).resize(10,10).into(vh.imageView);
+                .error(R.mipmap.ic_launcher).resize(100,100).into(vh.imageView);
 
         return vh.rootView;
-
         }
 
 
@@ -84,14 +85,16 @@ public class Adapter extends ArrayAdapter<Contact> {
          final ImageView imageView;
          final TextView tvName;
          final TextView tvEmail;
+         final TextView tvPhone;
 
 
-        private ViewHolder(RelativeLayout rootView, TextView tvName, TextView tvEmail, ImageView imageView) {
+        private ViewHolder(RelativeLayout rootView, TextView tvName, TextView tvEmail, ImageView imageView, TextView tvPhone) {
 
             this.rootView = rootView;
             this.tvName = tvName;
             this.tvEmail = tvEmail;
             this.imageView = imageView;
+            this.tvPhone = tvPhone;
         }
 
 
@@ -100,7 +103,8 @@ public class Adapter extends ArrayAdapter<Contact> {
             TextView tvName = (TextView) rootView.findViewById(R.id.tvName);
             TextView tvEmail = (TextView) rootView.findViewById(R.id.tvEmail);
             ImageView imageView = (ImageView) rootView.findViewById(R.id.imageView);
-            return new ViewHolder(rootView, tvName, tvEmail, imageView);
+            TextView tvPhone = (TextView) rootView.findViewById(R.id.tvPhone);
+            return new ViewHolder(rootView, tvName, tvEmail, imageView, tvPhone);
         }
     }
 

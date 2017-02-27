@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RetroFit JSON Object</string>
     <string name="imageContentDesc">image</string>
+    <string name="profile_pic_detailView">Profile Pci</string>
 </resources>
