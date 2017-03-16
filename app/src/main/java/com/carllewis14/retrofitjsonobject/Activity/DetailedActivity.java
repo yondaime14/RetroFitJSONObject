@@ -2,6 +2,7 @@ package com.carllewis14.retrofitjsonobject.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -10,15 +11,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.carllewis14.retrofitjsonobject.R;
-import com.squareup.picasso.Picasso;
 
 public class DetailedActivity extends AppCompatActivity {
 
     //declared variables
     TextView txtName, txtEmail, txtPhone;
-    ImageView img;
-    String name, email, phone, image;
+    Bundle img;
+    String name;
+    String email;
+    String phone;
+    ImageView imageView;
     Context mContext;
+    Bitmap bitmap;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -35,7 +39,7 @@ public class DetailedActivity extends AppCompatActivity {
         name = i.getStringExtra("name");
         email = i.getStringExtra("email");
         phone = i.getStringExtra("phone");
-        //image = i.getParcelableExtra("imageView");
+        bitmap = i.getParcelableExtra("imageView");
 
 
 
@@ -43,7 +47,7 @@ public class DetailedActivity extends AppCompatActivity {
         txtName = (TextView) findViewById(R.id.tvName);
         txtEmail = (TextView) findViewById(R.id.tvEmail);
         txtPhone = (TextView) findViewById(R.id.txtPhone);
-        img = (ImageView) findViewById(R.id.profilPic);
+        imageView = (ImageView) findViewById(R.id.profilPic);
 
 
 
@@ -54,7 +58,7 @@ public class DetailedActivity extends AppCompatActivity {
         txtName.setText(name);
         txtEmail.setText(email);
         txtPhone.setText(phone);
-        Picasso.with(mContext).load(image = i.getParcelableExtra("imageView")).into(img);
+        imageView.setImageBitmap(bitmap);
 
 
 

@@ -1,11 +1,14 @@
 package com.carllewis14.retrofitjsonobject.Activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.carllewis14.retrofitjsonobject.Adapter.Adapter;
@@ -21,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     /**
      * Views go here
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private View parentView;
     private ArrayList<Contact> contactList;
     private Adapter adapter;
+    private Bitmap bitmap;
+
+
 
 
     @Override
@@ -50,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                Contact selectedContact = contactList.get(position);
+                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                imageView.setDrawingCacheEnabled(true);
+                bitmap = imageView.getDrawingCache(Boolean.parseBoolean(contactList.get(position).getProfilePic()));
 
                 Intent intent = new Intent(MainActivity.this, DetailedActivity.class);
-                intent.putExtra("imageView", contactList.get(position).getProfilePic());
+                intent.putExtra("imageView", bitmap);
                 intent.putExtra("name", contactList.get(position).getName());
                 intent.putExtra("email", contactList.get(position).getEmail());
                 intent.putExtra("phone", contactList.get(position).getPhone().getMobile());
@@ -103,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onRefresh() {
 
     }
 
